@@ -17,13 +17,9 @@ const CurrentValue = () => {
     </option>
   ));
 
-  let alert = (
+  let alert = isNaN(amount) ? (
     <div className="alert alert-danger alert">Input must be a number!</div>
-  );
-
-  if (!isNaN(amount)) {
-    alert = null;
-  }
+  ) : null;
 
   return (
     <div className="input-group mb-3 current-value">
