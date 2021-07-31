@@ -1,17 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import "./swap.css";
 
-const Swap = ({ swap, calculate }) => {
+const Swap = () => {
+  const dispatch = useDispatch();
+
+  const { swap, calculate } = actions;
+
   return (
     <div className="swap">
       <button
         className="btn btn-outline-secondary"
         onClick={() => {
-          swap();
-          calculate();
+          dispatch(swap());
+          dispatch(calculate());
         }}
       >
         Swap
@@ -20,13 +23,4 @@ const Swap = ({ swap, calculate }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ state });
-const mapDispatchToProps = (dispatch) => {
-  const { swap, calculate } = bindActionCreators(actions, dispatch);
-  return {
-    swap,
-    calculate,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Swap);
+export default Swap;

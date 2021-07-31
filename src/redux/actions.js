@@ -1,10 +1,13 @@
-export const ChangefromRate = (rate) => ({ type: "from", payload: rate });
-export const ChangeToRate = (rate) => ({ type: "to", payload: rate });
+export const ChangefromRate = (rate) => ({
+  type: "SET_FROM_RATE",
+  payload: rate,
+});
+export const ChangeToRate = (rate) => ({ type: "SET_TO_RATE", payload: rate });
 
 export const changeAmount = (amount) => {
-  return { type: "amount", payload: amount };
+  return { type: "SET_AMOUNT", payload: amount };
 };
 export const swap = () => {
-  return { type: "swap" };
+  return { type: "SET_SWAP" };
 };
-export const calculate = () => ({ type: "calc" });
+export const calculate = () => ({ type: "SET_CALC" });

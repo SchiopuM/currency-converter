@@ -1,12 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 
 import "./current-value.css";
 
-const CurrentValue = ({ state, ChangefromRate, changeAmount, calculate }) => {
+const CurrentValue = () => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const { amount, fromRate, exchangeRates } = state;
+  const { calculate, changeAmount, ChangefromRate } = actions;
 
   const select = exchangeRates.map((el) => (
     <option key={el.code} value={el.code}>
@@ -32,8 +35,8 @@ const CurrentValue = ({ state, ChangefromRate, changeAmount, calculate }) => {
               className="form-select"
               value={fromRate}
               onChange={(e) => {
-                ChangefromRate(e.target.value);
-                calculate();
+                dispatch(ChangefromRate(e.target.value));
+                dispatch(calculate());
               }}
             >
               {select}
@@ -45,8 +48,8 @@ const CurrentValue = ({ state, ChangefromRate, changeAmount, calculate }) => {
             className="form-control"
             placeholder="0.00"
             onChange={(e) => {
-              changeAmount(Number(e.target.value));
-              calculate();
+              dispatch(changeAmount(Number(e.target.value)));
+              dispatch(calculate());
             }}
           />
         </div>
@@ -55,18 +58,4 @@ const CurrentValue = ({ state, ChangefromRate, changeAmount, calculate }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ state });
-const mapDispatchToProps = (dispatch) => {
-  const { changeAmount, ChangefromRate, calculate } = bindActionCreators(
-    actions,
-    dispatch
-  );
-
-  return {
-    changeAmount,
-    ChangefromRate,
-    calculate,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentValue);
+export default CurrentValue;

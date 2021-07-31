@@ -1,11 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+
 import * as actions from "../../redux/actions";
 import "./to-value.css";
 
-const ToValue = ({ state, ChangeToRate, calculate }) => {
+const ToValue = () => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const { result, exchangeRates, toRate } = state;
+  const { ChangeToRate, calculate } = actions;
 
   const select = exchangeRates.map((el) => (
     <option key={el.code} value={el.code}>
@@ -20,8 +24,8 @@ const ToValue = ({ state, ChangeToRate, calculate }) => {
           className="form-select"
           value={toRate}
           onChange={(e) => {
-            ChangeToRate(e.target.value);
-            calculate();
+            dispatch(ChangeToRate(e.target.value));
+            dispatch(calculate());
           }}
         >
           {select}
@@ -38,10 +42,4 @@ const ToValue = ({ state, ChangeToRate, calculate }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ state });
-const mapDispatchToProps = (dispatch) => {
-  const { ChangeToRate, calculate } = bindActionCreators(actions, dispatch);
-  return { ChangeToRate, calculate };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToValue);
+export default ToValue;

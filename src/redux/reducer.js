@@ -25,22 +25,22 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "from":
+    case "SET_FROM_RATE":
       return {
         ...state,
         fromRate: action.payload,
       };
-    case "to":
+    case "SET_TO_RATE":
       return {
         ...state,
         toRate: action.payload,
       };
-    case "amount":
+    case "SET_AMOUNT":
       return {
         ...state,
         amount: action.payload,
       };
-    case "calc":
+    case "SET_CALC":
       const from = state.exchangeRates.filter(
         (el) => el.code === state.fromRate
       )[0].rate;
@@ -54,7 +54,7 @@ const reducer = (state = initialState, action) => {
         result: result,
       };
 
-    case "swap":
+    case "SET_SWAP":
       return {
         ...state,
         fromRate: state.toRate,
