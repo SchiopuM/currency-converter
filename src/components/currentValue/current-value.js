@@ -1,14 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../redux/actions";
+
 import "./current-value.css";
 
-const CurrentValue = ({
-  rates,
-  changeRate,
-  fromRate,
-  changeamount,
-  amount,
-}) => {
-  const select = rates.map((el) => (
+const CurrentValue = ({ state, ChangefromRate, changeAmount, calculate }) => {
+  const { amount, fromRate, exchangeRates } = state;
+
+  const select = exchangeRates.map((el) => (
     <option key={el.code} value={el.code}>
       {el.code}
     </option>
@@ -31,7 +31,10 @@ const CurrentValue = ({
             <select
               className="form-select"
               value={fromRate}
-              onChange={changeRate}
+              onChange={(e) => {
+                ChangefromRate(e.target.value);
+                calculate();
+              }}
             >
               {select}
             </select>
@@ -41,7 +44,10 @@ const CurrentValue = ({
             type="text"
             className="form-control"
             placeholder="0.00"
-            onChange={changeamount}
+            onChange={(e) => {
+              changeAmount(Number(e.target.value));
+              calculate();
+            }}
           />
         </div>
       </div>
@@ -49,4 +55,18 @@ const CurrentValue = ({
   );
 };
 
-export default CurrentValue;
+const mapStateToProps = (state) => ({ state });
+const mapDispatchToProps = (dispatch) => {
+  const { changeAmount, ChangefromRate, calculate } = bindActionCreators(
+    actions,
+    dispatch
+  );
+
+  return {
+    changeAmount,
+    ChangefromRate,
+    calculate,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentValue);
