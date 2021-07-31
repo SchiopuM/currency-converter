@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+Tasks for UI Internship Candidates:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Currency Converter
 
-## Available Scripts
+A currency converter is used to convert an amount in one currency to its corresponding value in another currency using their current exchange rate, for example it can be used to calculate the value of 100 US Dollars in Euros. Current exchange rates are usually provided by banks and other financial service providers.
 
-In the project directory, you can run:
+Requirements:
 
-### `npm start`
+- User can enter up to 6 digits to represent the amount to convert in a source input field
+- User can view a sorted list of available currencies and select the currency to convert from in a source drop-down list
+- User can view a list of available currencies and select the currency to convert to in a destination drop-down list
+- User views the value (rounded to two decimal places) of the source amount converted to the destination currency in a single output field as soon as either the input value, the source currency, or the destination currency is changed.
+- User must be alerted if the input is not a number
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Example project: https://acodedoer.github.io/currency-converter/
+Data source:
+The following JSON can be used as a Data Source:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+{
+"exchangeRates": [
+{
+"code": "USD",
+"rate": 1
+},
+{
+"code": "EUR",
+"rate": 0.8
+},
+{
+"code": "GBP",
+"rate": 0.71
+},
+{
+"code": "MDL",
+"rate": 0.05
+}
+]
+}
 
-### `npm test`
+Notes:
+\*The rate value for each currency is the equivalent represented in USD
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Important
+After you’re done with the task you have to create a zip archive with the project and attach it in a reply to the email you’ve received.
 
-### `npm run build`
+Notes:
+The task can be solved with any library or framework JS (like Angular or ReactJS), or you can even implement only in JavaScript without any external libraries – any implementation is accepted.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Links:
+Editor/IDE: https://code.visualstudio.com
+NodeJS: https://nodejs.org/en/
+ReactJS: https://reactjs.org
+Angular: https://angular.io
+Yarn: https://yarnpkg.com
+Npm: https://www.npmjs.com
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Good luck!
