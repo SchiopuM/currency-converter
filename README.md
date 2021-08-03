@@ -1,4 +1,3 @@
-Tasks for UI Internship Candidates:
 
 Currency Converter
 
@@ -54,4 +53,4 @@ Angular: https://angular.io
 Yarn: https://yarnpkg.com
 Npm: https://www.npmjs.com
 
-Good luck!
+
